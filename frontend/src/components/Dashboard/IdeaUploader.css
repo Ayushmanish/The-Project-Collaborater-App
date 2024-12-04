@@ -1,0 +1,32 @@
+/* IdeaUploader.css */
+
+.idea-uploader {
+    margin: 3rem auto;
+    padding: 2rem;
+    max-width: 600px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .idea-uploader textarea,
+  .idea-uploader input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .idea-uploader button {
+    padding: 0.8rem 1.5rem;
+    background-color: #28a745;
+    color: #fff;
+    border-radius: 5px;
+    transition: 0.3s ease;
+  }
+  
+  .idea-uploader button:hover {
+    background-color: #218838;
+  }
+  

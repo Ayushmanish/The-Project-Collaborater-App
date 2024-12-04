@@ -1,0 +1,32 @@
+   /* QuizTaker.css */
+  
+  .quiz-taker {
+    margin: 3rem auto;
+    padding: 2rem;
+    max-width: 600px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .quiz-taker .question {
+    margin-bottom: 1.5rem;
+  }
+  
+  .quiz-taker .options label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  .quiz-taker button {
+    padding: 0.8rem 1.5rem;
+    background-color: #ffc107;
+    color: #fff;
+    border-radius: 5px;
+    transition: 0.3s ease;
+  }
+  
+  .quiz-taker button:hover {
+    background-color: #e0a800;
+  }
+  

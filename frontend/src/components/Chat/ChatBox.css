@@ -1,0 +1,35 @@
+/* ChatBox.css */
+
+.chat-box {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 3rem auto;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background: #fff;
+  }
+  
+  .chat-box .messages {
+    height: 300px;
+    overflow-y: scroll;
+    padding: 1rem;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .chat-box input {
+    width: calc(100% - 100px);
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 0.5rem;
+  }
+  
+  .chat-box button {
+    padding: 0.8rem 1.5rem;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+  }
+  
+  

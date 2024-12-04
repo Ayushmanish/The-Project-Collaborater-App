@@ -1,0 +1,32 @@
+/* QuizUploader.css */
+
+.quiz-uploader {
+    margin: 3rem auto;
+    padding: 2rem;
+    max-width: 600px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .quiz-uploader input,
+  .quiz-uploader select {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .quiz-uploader button {
+    padding: 0.8rem 1.5rem;
+    background-color: #17a2b8;
+    color: #fff;
+    border-radius: 5px;
+    transition: 0.3s ease;
+  }
+  
+  .quiz-uploader button:hover {
+    background-color: #117a8b;
+  }
+ 
