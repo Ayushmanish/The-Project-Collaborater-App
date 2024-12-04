@@ -10,14 +10,17 @@ const IdeaUploader = () => {
     try {
       const token = localStorage.getItem('token');
       // await axios.post('http://localhost:5000/api/ideas/create', idea, { headers: { Authorization: token } });
-      await axios.post('http://localhost:5000/api/ideas/create', idea, {
+    const resp=  await axios.post('http://127.0.0.1:5000/api/ideas/create', idea, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem(token)}`, // Include "Bearer" if your backend expects it
+          Authorization: `${token}`, // Include "Bearer" if your backend expects it
         },
       });
       
+      
       alert('Idea uploaded successfully!');
     } catch (error) {
+      const token = localStorage.getItem('token');
+      console.log(token)
       alert('Error uploading idea.');
     }
   };
