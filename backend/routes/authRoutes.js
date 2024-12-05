@@ -2,7 +2,7 @@ import express from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import User from '../models/User.js'; // Ensure to add .js extension
-
+import authMiddleware from '../middleware/authMiddleware.js';
 const router = express.Router();
 
 router.post('/signup', async (req, res) => {
@@ -37,5 +37,16 @@ router.post('/login', async (req, res) => {
     res.status(500).json({ message: 'Error logging in', error });
   }
 });
+
+router.get("/me",authMiddleware,async(req,res)=>{
+  try {
+    const user = req.user;
+    res.status(200).json({
+      user
+    })
+  } catch (error) {
+    res.status(500).json({ message: 'Error login first', error });
+  }
+})
 
 export default router;

@@ -8,6 +8,7 @@ const ideaSchema = new mongoose.Schema({
   slots: { type: Number, required: true },
   quiz: { type: String, default: null },
   uploaderId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  uploaderName:{type:String},
   collaborators: { type: [mongoose.Schema.Types.ObjectId], ref: 'User', default: [] }, // New field
 }, { timestamps: true });
 

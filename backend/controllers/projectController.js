@@ -1,11 +1,13 @@
-import Project from '../models/Project.js';
+import Project from '../models/Idea.js';
 import User from '../models/User.js';
-
+import Idea from '../models/Idea.js';
 // Fetch enrolled projects
 export const getEnrolledProjects = async (req, res) => {
   try {
-    const userId = req.user.id;
-    const projects = await Project.find({ collaborators: userId });
+    let userId = req.user._id;
+    // userId = userId.toString();
+    console.log(userId)
+    const projects = await Idea.find({ collaborators: userId });
     res.json(projects);
   } catch (error) {
     res.status(500).json({ message: 'Server error while fetching enrolled projects' });
@@ -15,8 +17,10 @@ export const getEnrolledProjects = async (req, res) => {
 // Fetch available projects
 export const getAvailableProjects = async (req, res) => {
   try {
-    const userId = req.user.id;
-    const projects = await Project.find({ collaborators: { $ne: userId } });
+    let userId = req.user._id;
+    // userId = userId.toString();
+    console.log(userId);
+    const projects = await Idea.find({ collaborators: {$ne:userId} });
     res.json(projects);
   } catch (error) {
     res.status(500).json({ message: 'Server error while fetching available projects' });

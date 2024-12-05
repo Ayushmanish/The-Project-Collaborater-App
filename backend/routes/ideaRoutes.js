@@ -8,8 +8,9 @@ router.post('/create', authMiddleware, async (req, res) => {
   const { title, description, techStack, domain, slots, quiz } = req.body;
 
   try {
-    const uploaderId = req.user.id; // Extracted by the auth middleware
-    const idea = new Idea({ title, description, techStack, domain, slots, quiz, uploaderId });
+    const uploaderId = req.user.id; 
+    const uploaderName = req.user.username;
+    const idea = new Idea({ title, description, techStack, domain, slots, quiz, uploaderId,uploaderName });
     await idea.save();
     res.status(201).json({ message: 'Idea created successfully!', idea });
   } catch (error) {
