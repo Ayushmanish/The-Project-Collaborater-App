@@ -105,7 +105,7 @@ const IdeaDetailsPage = () => {
       const response = await axios.post(
         `http://localhost:5000/api/ideas/${id}/enroll`,
         {}, // Provide additional data if required
-        { headers: { Authorization: `Bearer ${token}` } } // Ensure Bearer prefix if required
+        { headers: { Authorization: `${token}` } } // Ensure Bearer prefix if required
       );
   
       alert(response.data.message || 'Enrolled successfully!');
