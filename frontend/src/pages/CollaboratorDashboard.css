@@ -1,62 +1,67 @@
-/* CollaboratorDashboard.css */
-.dashboard-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 20px;
-    background-color: #f5f5f5; /* Light background for better contrast */
+   body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
   }
   
-  .card {
-    background-color: #ffffff; /* White background for the card */
-    border: 1px solid #ddd; /* Subtle border for definition */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-    margin: 15px; /* Spacing between cards */
-    padding: 20px;
-    width: 300px; /* Card width */
+  .dashboard-container {
+    width: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
   
-  .card:hover {
-    transform: translateY(-5px); /* Slight lift on hover */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
-  }
-  
-  .card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: #333;
-  }
-  
-  .card p {
-    font-size: 1rem;
-    color: #555;
-    margin-bottom: 15px;
-    line-height: 1.5;
-  }
-  
-  .card a {
-    text-decoration: none;
-    color: #007bff; /* Blue for link */
-    font-weight: bold;
-    align-self: flex-end;
-    margin-top: 10px;
-    transition: color 0.2s ease;
-  }
-  
-  .card a:hover {
-    color: #0056b3; /* Darker blue on hover */
-  }
-  
-  .header {
-    font-size: 2rem;
-    margin: 20px 0;
+  .welcome-section {
+    background-color: #4caf50;
+    color: white;
+    padding: 20px;
     text-align: center;
-    color: #333;
-    font-weight: bold;
+  }
+  
+  .content-section {
+    display: flex;
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .enrolled-projects,
+  .available-projects {
+    flex: 1;
+    margin: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  h2 {
+    margin-top: 0;
+  }
+  
+  .project-card {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #eef2f7;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .project-card h3 {
+    margin: 0 0 10px;
+  }
+  
+  .project-card button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .project-card button:hover {
+    background-color: #45a049;
   }
   

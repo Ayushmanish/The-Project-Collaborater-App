@@ -1,34 +1,3 @@
-// import express from 'express';
-// import cors from 'cors';
-// import dotenv from 'dotenv';
-// import connectDB from './config/db.js'; // Ensure to add .js extension
-// import authRoutes from './routes/authRoutes.js'; // Ensure to add .js extension
-// import ideaRoutes from './routes/ideaRoutes.js'; // Ensure to add .js extension
-// import quizRoutes from './routes/quizRoutes.js'; // Ensure to add .js extension
-// import chatRoutes from './routes/chatRoutes.js'; // Ensure to add .js extension
-
-// dotenv.config();
-
-// const app = express();
-
-// // Middleware
-// app.use(express.json());
-// app.use(cors());
-
-// // Database connection
-// connectDB();
-
-// // Routes
-// app.use('/api/auth', authRoutes);
-// app.use('/api/ideas', ideaRoutes);
-// app.use('/api/quizzes', quizRoutes);
-// app.use('/api/chats', chatRoutes);
-
-// // Start server
-// const PORT = process.env.PORT || 5000;
-// app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
-
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
@@ -39,6 +8,7 @@ import authRoutes from './routes/authRoutes.js'; // Ensure to add .js extension
 import ideaRoutes from './routes/ideaRoutes.js'; // Ensure to add .js extension
 import quizRoutes from './routes/quizRoutes.js'; // Ensure to add .js extension
 import chatRoutes from './routes/chatRoutes.js'; // Ensure to add .js extension
+import projectRoutes from './routes/projectRoutes.js';
 import roomRoutes from './routes/roomRoutes.js'; // Add the new roomRoutes for collaboration room
 
 dotenv.config();
@@ -55,6 +25,9 @@ const io = new Server(httpServer, {
 // Middleware
 app.use(express.json());
 app.use(cors());
+
+// Add this line to register the project routes
+app.use('/api/projects', projectRoutes);
 
 // Database connection
 connectDB();

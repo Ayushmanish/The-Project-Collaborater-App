@@ -4,7 +4,7 @@ import IdeaUploader from '../components/Dashboard/IdeaUploader';
 const UploaderDashboard = () => {
   return (
     <div>
-      <h2>Uploader Dashboard</h2>
+      <center><h2>Uploader Dashboard</h2></center>
       <IdeaUploader />
     </div>
   );

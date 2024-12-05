@@ -1,32 +1,102 @@
+// import React, { useState } from 'react';
+// import axios from 'axios';
+// import './SignUpForm.css';
+
+// const SignupForm = () => {
+//   const [formData, setFormData] = useState({ username: '', email: '', password: '', role: '' });
+
+//   const handleSignup = async (e) => {
+//     e.preventDefault();
+//     try {
+//       await axios.post('http://localhost:5000/api/auth/signup', formData);
+//       alert('Signup successful! Please login.');
+//     } catch (error) {
+//       alert('Signup failed. Please try again.');
+//     }
+//   };
+
+//   return (
+//     <form onSubmit={handleSignup}>
+//       <input type="text" placeholder="Username" onChange={(e) => setFormData({ ...formData, username: e.target.value })} />
+//       <input type="email" placeholder="Email" onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
+//       <input type="password" placeholder="Password" onChange={(e) => setFormData({ ...formData, password: e.target.value })} />
+//       <select onChange={(e) => setFormData({ ...formData, role: e.target.value })}>
+//         <option value="">Select Role</option>
+//         <option value="Uploader">Uploader</option>
+//         <option value="Collaborator">Collaborator</option>
+//       </select>
+//       <button type="submit">Signup</button>
+//     </form>
+//   );
+// };
+
+// export default SignupForm;
+
+
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './SignUpForm.css';
 
 const SignupForm = () => {
   const [formData, setFormData] = useState({ username: '', email: '', password: '', role: '' });
+  const [signupSuccess, setSignupSuccess] = useState(false);
+  const [error, setError] = useState('');
 
   const handleSignup = async (e) => {
     e.preventDefault();
+    setError(''); // Reset error message
     try {
       await axios.post('http://localhost:5000/api/auth/signup', formData);
-      alert('Signup successful! Please login.');
+      setSignupSuccess(true); // Mark signup as successful
     } catch (error) {
-      alert('Signup failed. Please try again.');
+      setError(error.response?.data?.message || 'Signup failed. Please try again.');
     }
   };
 
   return (
-    <form onSubmit={handleSignup}>
-      <input type="text" placeholder="Username" onChange={(e) => setFormData({ ...formData, username: e.target.value })} />
-      <input type="email" placeholder="Email" onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
-      <input type="password" placeholder="Password" onChange={(e) => setFormData({ ...formData, password: e.target.value })} />
-      <select onChange={(e) => setFormData({ ...formData, role: e.target.value })}>
-        <option value="">Select Role</option>
-        <option value="Uploader">Uploader</option>
-        <option value="Collaborator">Collaborator</option>
-      </select>
-      <button type="submit">Signup</button>
-    </form>
+    <div className="signup-form-container">
+      {signupSuccess ? (
+        <div className="success-message">
+          <h2>Signup Successful!</h2>
+          <p>
+            Your account has been created. You can now <Link to="/">Log In</Link>.
+          </p>
+        </div>
+      ) : (
+        <form onSubmit={handleSignup} className="signup-form">
+          <h2>Create an Account</h2>
+          {error && <p className="error-message">{error}</p>}
+          <input
+            type="text"
+            placeholder="Username"
+            onChange={(e) => setFormData({ ...formData, username: e.target.value })}
+            required
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            required
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+            required
+          />
+          <select
+            onChange={(e) => setFormData({ ...formData, role: e.target.value })}
+            required
+          >
+            <option value="">Select Role</option>
+            <option value="Uploader">Uploader</option>
+            <option value="Collaborator">Collaborator</option>
+          </select>
+          <button type="submit">Sign Up</button>
+        </form>
+      )}
+    </div>
   );
 };
 

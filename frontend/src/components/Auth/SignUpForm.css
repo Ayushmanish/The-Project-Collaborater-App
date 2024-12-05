@@ -1,3 +1,4 @@
+/* General body styling */
 body {
   padding: 0;
   margin: 0;
@@ -5,18 +6,35 @@ body {
   background-color: #eef2f7;
 }
 
+/* Container for the signup form */
+.signup-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  padding: 20px;
+}
+
+/* Form styling */
 form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  width: 100%;
   max-width: 400px;
-  margin: 0 auto;
   padding: 20px;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+form h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+  text-align: center;
 }
 
 form input,
@@ -62,10 +80,6 @@ form button:active {
   background-color: #3d8c41;
 }
 
-form {
-  text-align: center;
-}
-
 form input::placeholder {
   color: #aaa;
 }
@@ -74,8 +88,47 @@ form select option {
   color: #555;
 }
 
-/* Optional styling for select role prompt */
 form select option:first-of-type {
   font-style: italic;
   color: #999;
+}
+
+/* Success message styling */
+.success-message {
+  max-width: 400px;
+  padding: 20px;
+  background-color: #e7f9e7;
+  border: 1px solid #4caf50;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.success-message h2 {
+  color: #4caf50;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.success-message p {
+  font-size: 16px;
+  color: #333;
+}
+
+.success-message a {
+  color: #4caf50;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.success-message a:hover {
+  text-decoration: underline;
+}
+
+/* Error message styling */
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+  text-align: center;
 }
