@@ -6,11 +6,12 @@ const router = express.Router();
 // Route to create a new idea (Uploader role only)
 router.post('/create', authMiddleware, async (req, res) => {
   const { title, description, techStack, domain, slots, quiz } = req.body;
-
+console.log(1);
   try {
-    const uploaderId = req.user.id; 
+    const uploaderId = req.user._id; 
     const uploaderName = req.user.username;
     const idea = new Idea({ title, description, techStack, domain, slots, quiz, uploaderId,uploaderName });
+    idea.collaboratorsName.push(uploaderName);
     await idea.save();
     res.status(201).json({ message: 'Idea created successfully!', idea });
   } catch (error) {
@@ -70,9 +71,15 @@ router.post('/:id/enroll', authMiddleware, async (req, res) => {
     }
 
     // Add user to collaborators
+    if(idea.slots <1){
+      return res.status(400).json({ error: 'No Slots Available to Enroll' });
+    }
     idea.collaborators.push(req.user.id);
+    
+    let slots = idea.slots;
+    idea.slots = slots-1;
+    idea.collaboratorsName.push(req.user.username);
     await idea.save();
-
     // Populate collaborators with username and email
     const updatedIdea = await Idea.findById(id).populate('collaborators', 'username email');
 

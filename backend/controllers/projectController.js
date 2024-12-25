@@ -34,13 +34,15 @@ export const leaveProject = async (req, res) => {
     const { projectId } = req.params;
 
     const project = await Project.findById(projectId);
-
+    console.log(project)
     if (!project) {
       return res.status(404).json({ message: 'Project not found' });
     }
 
     // Remove the user from collaborators
     project.collaborators = project.collaborators.filter((collabId) => collabId.toString() !== userId);
+    let slots = project.slots;
+    project.slots = slots+1;
     await project.save();
 
     res.json({ message: 'You have successfully left the project' });
